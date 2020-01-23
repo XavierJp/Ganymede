@@ -15,7 +15,7 @@ div.main-container {
 
 img.logo {
   width: 250px;
-  max-width: calc(100% -20px);
+  max-width: calc(100% - 20px);
   margin: 0 10px 50px;
 }
 
@@ -23,7 +23,8 @@ div.main-container > p {
   color: #082128;
   font-weight: 200;
   font-size: 1.6rem;
-  margin: 0px 0 50px;
+  margin: 0px 10px 50px;
+  line-height: 2rem;
 }
 
 div.main-container > a {
