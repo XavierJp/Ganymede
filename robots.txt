@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://ganymede.tech/sitemap.xml
+Host: https://ganymede.tech
