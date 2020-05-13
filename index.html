@@ -72,7 +72,7 @@
         }
         var smallPlanet = document.getElementById("planet-small-container");
         for (var i = 0; i < 4; i++) {
-          const size = 4 + Math.random() * 10;
+          const size = 8 + Math.random() * 6;
           const posX = Math.random();
           const posY = Math.random();
           var newStar = document.createElement("div");
@@ -100,7 +100,6 @@
         var space = document.getElementById("space");
         space.addEventListener("scroll", function (e) {
           var run = (space.scrollTop / space.scrollHeight) * 100;
-          console.log(space.scrollTop, run);
           comet.style.top = `${(run * 50) / 2 - 20}px`;
           comet.style.right = `${run * 50 + 200}px`;
         });
