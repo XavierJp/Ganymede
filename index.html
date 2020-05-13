@@ -8,12 +8,103 @@
     <meta name="author" content="Xavier Jouppe" />
     <link rel="stylesheet" href="resources/css/reset.css?v=1.0" />
     <link rel="stylesheet" href="resources/css/styles.css?v=1.0" />
+    <style>
+      /* nunito-600 - latin */
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 600;
+        src: url("resources/fonts/nunito-v12-latin-600.eot"); /* IE9 Compat Modes */
+        src: local("Nunito SemiBold"), local("Nunito-SemiBold"),
+          url("resources/fonts/nunito-v12-latin-600.eot?#iefix")
+            format("embedded-opentype"),
+          /* IE6-IE8 */ url("resources/fonts/nunito-v12-latin-600.woff2")
+            format("woff2"),
+          /* Super Modern Browsers */
+            url("resources/fonts/nunito-v12-latin-600.woff") format("woff"),
+          /* Modern Browsers */ url("resources/fonts/nunito-v12-latin-600.ttf")
+            format("truetype"),
+          /* Safari, Android, iOS */
+            url("resources/fonts/nunito-v12-latin-600.svg#Nunito") format("svg"); /* Legacy iOS */
+      }
+    </style>
   </head>
   <body>
-    <div class="main-container">
-      <img class="logo" src="resources/logo/Logo.svg" />
-      <p>... concoit et développe vos projets informatiques.</p>
-      <a href="mailto:xaiver@ganymede.tech">@ contactez-moi !</a>
+    <div id="space" class="parallax">
+      <div class="main-container parallax__layer parallax__layer--ganymede">
+        <img class="logo" src="resources/logo/ganymede.svg" />
+        <h1>Ganymède</h1>
+        <p>... concoit et développe vos projets informatiques.</p>
+        <a href="mailto:xaiver@ganymede.tech">@ contactez-moi !</a>
+      </div>
+      <div class="main-container parallax__layer parallax__layer--comet">
+        <img id="comet" src="resources/logo/comet.svg" />
+      </div>
+      <div
+        id="star-container"
+        class="parallax__layer parallax__layer--deep"
+      ></div>
+      <div
+        id="planet-small-container"
+        class="parallax__layer parallax__layer--back"
+      ></div>
+      <div
+        id="planet-medium-container"
+        class="parallax__layer parallax__layer--base"
+      ></div>
     </div>
+    <script>
+      (function () {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight * 1.1;
+        var stars = document.getElementById("star-container");
+        for (var i = 0; i < 300; i++) {
+          const size = Math.random() * 5;
+          const posX = Math.random();
+          const posY = Math.random();
+          var newStar = document.createElement("div");
+          newStar.className = "star celestial";
+          newStar.style.width = `${size}px`;
+          newStar.style.height = `${size}px`;
+          newStar.style.top = `${posX * windowHeight}px`;
+          newStar.style.left = `${posY * windowWidth}px`;
+          stars.appendChild(newStar);
+        }
+        var smallPlanet = document.getElementById("planet-small-container");
+        for (var i = 0; i < 4; i++) {
+          const size = 4 + Math.random() * 10;
+          const posX = Math.random();
+          const posY = Math.random();
+          var newStar = document.createElement("div");
+          newStar.className = "red-planet celestial";
+          newStar.style.width = `${size}px`;
+          newStar.style.height = `${size}px`;
+          newStar.style.top = `${posX * windowHeight}px`;
+          newStar.style.left = `${posY * windowWidth}px`;
+          smallPlanet.appendChild(newStar);
+        }
+        var mediumPlanet = document.getElementById("planet-medium-container");
+        for (var i = 0; i < 2; i++) {
+          const size = 8 + Math.random() * 8;
+          const posX = Math.random();
+          const posY = Math.random();
+          var newStar = document.createElement("div");
+          newStar.className = "blue-planet celestial";
+          newStar.style.width = `${size}px`;
+          newStar.style.height = `${size}px`;
+          newStar.style.top = `${posX * windowHeight}px`;
+          newStar.style.left = `${posY * windowWidth}px`;
+          mediumPlanet.appendChild(newStar);
+        }
+        var comet = document.getElementById("comet");
+        var space = document.getElementById("space");
+        space.addEventListener("scroll", function (e) {
+          var run = (space.scrollTop / space.scrollHeight) * 100;
+          console.log(space.scrollTop, run);
+          comet.style.top = `${(run * 50) / 2 - 20}px`;
+          comet.style.right = `${run * 50 + 200}px`;
+        });
+      })();
+    </script>
   </body>
 </html>

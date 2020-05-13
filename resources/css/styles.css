@@ -1,11 +1,14 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
   font-size: 16px;
+  background-color: #001a22;
+  color: #8bdcff;
 }
 
 div.main-container {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -14,31 +17,107 @@ div.main-container {
 }
 
 img.logo {
-  width: 250px;
+  width: 320px;
   max-width: calc(100% - 20px);
-  margin: 0 10px 50px;
+  margin: 0 10px;
+  border: 25px solid rgba(1, 1, 1, 0.15);
+  border-radius: 100%;
+}
+img#comet {
+  position: absolute;
+  width: 180px;
+  max-width: calc(100% - 20px);
+  top: -20px;
+  right: 200px;
+}
+div.main-container > h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  margin: 30px 10px 30px;
+  line-height: 3.5rem;
+  text-shadow: 0 0 15px #0006;
+  background-color: rgba(1, 1, 1, 0.2);
+  border-radius: 12px;
+  padding: 5px 20px;
 }
 
 div.main-container > p {
-  color: #082128;
   font-weight: 200;
   font-size: 1.6rem;
   margin: 0px 10px 50px;
   line-height: 2rem;
+  background-color: rgba(1, 1, 1, 0.2);
+  border-radius: 12px;
+  padding: 5px 20px;
 }
 
 div.main-container > a {
   text-decoration: none;
-  border: 2px solid #143e49;
+  border: 2px solid #8bdcff;
   border-radius: 5px;
   padding: 10px 12px;
-  color: #143e49;
+  color: #8bdcff;
   font-weight: 400;
+  background-color: rgba(1, 1, 1, 0.2);
   font-size: 1rem;
   transition: color 300ms ease-in-out, background-color 300ms ease-in-out;
 }
 div.main-container > a:hover {
   text-decoration: none;
-  background-color: #143e49;
-  color: #fff;
+  background-color: #8bdcff;
+  color: #001a22;
+}
+
+div.parallax__layer > .celestial {
+  position: absolute;
+  border-radius: 40px;
+}
+div.parallax__layer > .star {
+  background-color: #8bdcff;
+  border-radius: 40px;
+}
+div.parallax__layer > .red-planet {
+  background-color: #e65c00;
+  border: 3px solid #e63600;
+}
+div.parallax__layer > .blue-planet {
+  background-color: #e6d700;
+  border: 3px solid #e6b000;
+}
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--base {
+  transform: translate(0);
+  z-index: 4;
+}
+.parallax__layer--back {
+  transform: translateZ(-2px) scale(3);
+  z-index: 2;
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-4px) scale(5);
+  z-index: 0;
+}
+
+.parallax__layer--ganymede {
+  transform: translateZ(-3px) scale(4);
+  z-index: 1;
+}
+
+.parallax__layer--comet {
+  transform: translateZ(-1px) scale(2);
+  z-index: 3;
 }
